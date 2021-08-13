@@ -22,9 +22,18 @@ jobs:
       - name: Print output
         run: |
           echo "The file is ${{ steps.meta.outputs.meta_file }}"
-      - name: Update release
-        uses: kaliber5/action-update-release@v1
+      - name: Get latest release
+        id: latest_release
+        uses: kaliber5/action-get-release@v1
         with:
           token: ${{ github.token }}
-          id: v6
-          body: wat
+          latest: true 
+      - name: Print release
+        run: |
+          echo "Release id is ${{ teps.latest_release.outputs.id  }}"
+      # - name: Update release
+        # uses: kaliber5/action-update-release@v1
+        # with:
+          # token: ${{ github.token }}
+          # id: v6
+          # body: wat
