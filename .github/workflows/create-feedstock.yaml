@@ -23,4 +23,4 @@ jobs:
 
  - name: Print meta
    run: |
-     echo  ${{ steps.meta.outputs.META_YAML }}
+     echo  "${{ steps.meta.outputs.META_YAML }}"
