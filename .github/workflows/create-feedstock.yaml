@@ -30,3 +30,10 @@ jobs:
       - name: Print meta
         run: |
           echo  "${{ steps.meta.outputs.META_YAML }}"
+
+      - name: Create Feedstock repository
+        uses: pangeo-forge/feedstock-creation-action@v1
+        with:
+          path_to_meta_yaml: ${{ steps.meta.outputs.META_YAML }}
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
