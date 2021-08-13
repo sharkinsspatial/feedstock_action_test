@@ -13,7 +13,7 @@ jobs:
         id: changed-files
         # Set outputs using the command.
         run: |
-          echo "::set-output name=all::$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})"
+          echo "::set-output name=all::$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | xargs)"
 
       - name: Locate pr meta.yaml
         id: meta
