@@ -30,7 +30,7 @@ jobs:
           latest: true 
       - name: Print release
         run: |
-          echo "Release id is ${{ teps.latest_release.outputs.id  }}"
+          echo "Release id is ${{ steps.latest_release.outputs.id  }}"
       # - name: Update release
         # uses: kaliber5/action-update-release@v1
         # with:
