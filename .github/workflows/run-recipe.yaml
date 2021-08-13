@@ -31,9 +31,9 @@ jobs:
       - name: Print release
         run: |
           echo "Release id is ${{ steps.latest_release.outputs.id  }}"
-      # - name: Update release
-        # uses: kaliber5/action-update-release@v1
-        # with:
-          # token: ${{ github.token }}
-          # id: v6
-          # body: wat
+      - name: Update release
+        uses: kaliber5/action-update-release@v1
+        with:
+          token: ${{ github.token }}
+          id: 47824548
+          body: wat
