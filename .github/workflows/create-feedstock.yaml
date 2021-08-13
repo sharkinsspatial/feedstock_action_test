@@ -6,11 +6,14 @@ jobs:
   create-feedstock:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Get changed files
         id: changed-files
         # Set outputs using the command.
         run: |
-          echo "::set-output name=all::$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }})"
+          echo "::set-output name=all::$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})"
 
       - name: Locate pr meta.yaml
         id: meta
