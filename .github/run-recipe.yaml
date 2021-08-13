@@ -1,0 +1,26 @@
+name: Run recipe
+on:
+  release:
+    branches: [ master ]
+    types: [ published ]
+jobs:
+  run-recipe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+      - name: Download bakeries.yaml
+        id: download-bakeries
+        run: |
+          curl https://raw.githubusercontent.com/pangeo-forge/bakery-database/main/bakeries.yaml -o ${GITHUB_WORKSPACE}/bakeries.yaml
+      - name: Locate meta.yaml
+        id: meta
+        run: |
+          echo "::set-output name=meta_file::$(git ls-files '**/meta.yaml'"
+      - name: Print output
+        run: |
+          echo "The file is ${{ steps.meta.outputs.meta_file }}"
+
+
