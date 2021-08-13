@@ -23,11 +23,8 @@ jobs:
         run: |
           echo "The file is ${{ steps.meta.outputs.meta_file }}"
       - name: Update release
-        id: update-release
-        uses: tubone24/update_release@v1.0
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
+        uses: kaliber5/action-update-release@v1
         with:
-          body: test_body # new body text
-
-
+          token: ${{ github.token }}
+          id: v6
+          body: wat
