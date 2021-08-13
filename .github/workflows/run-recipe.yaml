@@ -18,7 +18,7 @@ jobs:
       - name: Locate meta.yaml
         id: meta
         run: |
-          echo "::set-output name=meta_file::$(echo wat)"
+          echo "::set-output name=meta_file::$(git ls-files '**/meta.yaml')"
       - name: Print output
         run: |
           echo "The file is ${{ steps.meta.outputs.meta_file }}"
