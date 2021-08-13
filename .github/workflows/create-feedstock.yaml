@@ -8,7 +8,6 @@ jobs:
     # Set outputs using the command.
     run: |
       echo "::set-output name=all::$(git diff --name-only origin/master HEAD | xargs)"
-
   - name: Locate pr meta.yaml
     id: meta
     run: |
@@ -20,7 +19,6 @@ jobs:
       fi
       done
       exit 1 # Fail - meta.yaml required
-
  - name: Print meta
    run: |
      echo  "${{ steps.meta.outputs.META_YAML }}"
