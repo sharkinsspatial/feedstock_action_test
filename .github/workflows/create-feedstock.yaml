@@ -14,11 +14,11 @@ jobs:
       for changed_file in ${{ steps.changed-files.outputs.all }}; do
       if [[ ${changed_file} =~ ^.*recipes\/.*meta\.(yml|yaml)$ ]];
       then
-      echo "::set-output name=META_YAML::${changed_file}";
-      exit 0
+        echo "::set-output name=META_YAML::${changed_file}";
+        exit 0
       fi
-      done
-      exit 1 # Fail - meta.yaml required
+    done
+    exit 1 # Fail - meta.yaml required
  - name: Print meta
    run: |
      echo  "${{ steps.meta.outputs.META_YAML }}"
