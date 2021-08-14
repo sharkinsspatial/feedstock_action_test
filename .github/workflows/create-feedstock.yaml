@@ -31,6 +31,7 @@ jobs:
         run: |
           echo  "${{ steps.meta.outputs.META_YAML }}"
 
+      - uses: fregante/setup-git-user@v1
       - name: Create Feedstock repository
         uses: pangeo-forge/feedstock-creation-action@main
         with:
