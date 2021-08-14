@@ -32,7 +32,7 @@ jobs:
           echo  "${{ steps.meta.outputs.META_YAML }}"
 
       - name: Create Feedstock repository
-        uses: pangeo-forge/feedstock-creation-action@v1.0
+        uses: pangeo-forge/feedstock-creation-action@main
         with:
           path_to_meta_yaml: "${{ steps.meta.outputs.META_YAML }}"
         env:
